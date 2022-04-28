@@ -1,11 +1,10 @@
 import React from "react";
 
-export const Main = ({theme}) => {
+export const Main = ({ theme, text, auth }) => {
   return (
     <main className={theme}>
-      <p>Hola Bienvenido Invitado</p>
-      <p>Hola usuario</p>
-      <p>Mi contenido principal</p>
+      {auth ? <p>{text.mainHello}</p> : <p>{text.mainWelcome}</p>}
+      <p>{text.mainContent}</p>
     </main>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Footer = ({theme}) => {
+export const Footer = ({theme,text}) => {
   return (
     <footer className={theme}>
-    <h4>mi pie de pagina</h4>
+    <h4>{text.footerTitle}</h4>
   </footer>
   )
 }

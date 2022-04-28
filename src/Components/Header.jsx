@@ -1,11 +1,18 @@
 import React from "react";
 
-export const Header = ({ theme, handleTheme }) => {
+export const Header = ({
+  theme,
+  handleTheme,
+  text,
+  handleLanguage,
+  auth,
+  handleAuth,
+}) => {
   return (
     <header className={theme}>
-      <h2>Mi Aplicacion sin Context API</h2>
-      <h3>Mi cabecera</h3>
-      <select name="language">
+      <h2>{text.headerTitle}</h2>
+      <h3>{text.headerSubtitle}</h3>
+      <select name="language" onChange={handleLanguage}>
         <option value="es">ES</option>
         <option value="en">EN</option>
       </select>
@@ -16,7 +23,7 @@ export const Header = ({ theme, handleTheme }) => {
         onClick={handleTheme}
         value="light"
       />
-      <label htmlFor="light">Claro</label>
+      <label htmlFor="light">{text.headerLight}</label>
       <input
         type="radio"
         name="theme"
@@ -24,8 +31,10 @@ export const Header = ({ theme, handleTheme }) => {
         onClick={handleTheme}
         value="dark"
       />
-      <label htmlFor="dark">Oscuro</label>
-      <button>Iniciar Sesion</button>
+      <label htmlFor="dark">{text.headerDark}</label>
+      <button onClick={handleAuth}>
+        {auth ? text.buttonLogout : text.buttonLogin}
+      </button>
     </header>
   );
 };
